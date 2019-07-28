@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<robot name="odisseus">
+	
+	<!-- the base_link -->
+	<link name="base_link">
+		<visual>
+			<geometry>
+				<box size="0.6 0.3 0.1"/>
+			</geometry>
+			<origin rpy="0 0 0" xyz="0 0 0.05" />
+			<material name="silver">
+				<color rgba="0.75 0.75 0.75 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.6 0.3 0.3"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1.0"/>
+			<inertia ixx="0.015" iyy="0.0375" izz="0.0375" ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</link>
+	<!-- the first wheel -->
+	<link name="wheel_1">
+   		<visual>
+     		<geometry>
+       			<cylinder length="0.05" radius="0.05"/>
+     		</geometry>
+			<origin rpy="0 1.5 0" xyz="0.1 0.1 0"/>
+   			<material name="black">
+				<color rgba="0 0 0 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+       			<cylinder length="0.05" radius="0.05"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="10"/>
+	 		<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+ 	</link>
+	<!-- the second wheel -->
+ 	<link name="wheel_2">
+   		<visual>
+     		<geometry>
+       			<cylinder length="0.05" radius="0.05"/>
+     		</geometry>
+			<origin rpy="0 1.5 0" xyz="-0.1 0.1 0"/>
+   			<material name="black"/>
+   		</visual>
+		<collision>
+			<geometry>
+       			<cylinder length="0.05" radius="0.05"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="10"/>
+	 		<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+ 	</link>
+    <!-- the third wheel -->
+ 	<link name="wheel_3">
+   		<visual>
+     		<geometry>
+       			<cylinder length="0.05" radius="0.05"/>
+     		</geometry>
+			<origin rpy="0 1.5 0" xyz="0.1 -0.1 0"/>
+   			<material name="black"/>
+   		</visual>
+		<collision>
+			<geometry>
+       			<cylinder length="0.05" radius="0.05"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="10"/>
+	 		<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+ 	</link>
+	<!-- the fourth wheel -->
+ 	<link name="wheel_4">
+   		<visual>
+     		<geometry>
+       			<cylinder length="0.05" radius="0.05"/>
+     		</geometry>
+			<origin rpy="0 1.5 0" xyz="-0.1 -0.1 0"/>
+   			<material name="black"/>
+   		</visual>
+		<collision>
+			<geometry>
+       			<cylinder length="0.05" radius="0.05"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="10"/>
+	 		<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+ 	</link>
+	
+	<!-- joint wheels-->
+	<joint name="base_to_wheel1" type="fixed">
+		<parent link="base_link"/>
+		<child link="wheel_1"/>
+		<origin xyz="0 0 0"/>
+	</joint>
+	<joint name="base_to_wheel2" type="fixed">
+		<parent link="base_link"/>
+		<child link="wheel_2"/>
+		<origin xyz="0 0 0"/>
+	</joint>
+	
+	<joint name="base_to_wheel3" type="fixed">
+		<parent link="base_link"/>
+		<child link="wheel_3"/>
+		<origin xyz="0 0 0"/>
+	</joint>
+	<joint name="base_to_wheel4" type="fixed">
+		<parent link="base_link"/>
+		<child link="wheel_4"/>
+		<origin xyz="0 0 0"/>
+	</joint>
+</robot>
