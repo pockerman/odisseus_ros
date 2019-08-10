@@ -1,11 +1,15 @@
 #ifndef ODISSEUS_ODOMETRY_HPP
 #define ODISSEUS_ODOMETRY_HPP
 
+#include "odisseus/pose.h"
 #include <random>
 #include <ros/ros.h>
 
 namespace odisseus
 {
+	
+	typedef pose Pose;
+	typedef poseConstPtr PoseConstPtr;
 	
 	namespace odo
 	{

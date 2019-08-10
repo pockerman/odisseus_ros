@@ -80,12 +80,12 @@ namespace odisseus
 				// Spawn a new turtle and store its name.
 				ros::service::waitForService("spawn");
 				
-				turtlesim::Spawn spawn_visualization_turtle;
-				spawn_visualization_turtle.request.x = initial_pose.x;
-				spawn_visualization_turtle.request.y = initial_pose.y;
-				spawn_visualization_turtle.request.theta = initial_pose.theta;
+				/*turtlesim::Spawn spawn_visualization_odisseus;
+				spawn_visualization_odisseus.request.x = initial_pose.x;
+				spawn_visualization_odisseus.request.y = initial_pose.y;
+				spawn_visualization_odisseus.request.theta = initial_pose.theta;
 				
-				auto client = node_handle_.serviceClient<decltype(spawn_visualization_turtle)>("spawn");
+				auto client = node_handle_.serviceClient<decltype(spawn_visualization_odisseus)>("spawn");
 				client.call(spawn_visualization_turtle);
 				visualization_turtle_name_ = spawn_visualization_turtle.response.name;
 				
@@ -97,11 +97,11 @@ namespace odisseus
 				configure_visualization_odisseus.request.width = 1;
 				configure_visualization_odisseus.request.off = 0;
 				
-				auto client_configure = node_handle_.serviceClient<decltype(configure_visualization_turtle)>(visualization_odisseus_name_ + "/set_pen");
-				client_configure.call(configure_visualization_turtle);
+				auto client_configure = node_handle_.serviceClient<decltype(configure_visualization_odisseus)>(visualization_odisseus_name_ + "/set_pen");
+				client_configure.call(configure_visualization_odisseus);*/
 				
 				// Log message.
-				ROS_INFO("Relative position measurement (odometry) visualized by '%s' with a red pen.", visualization_turtle_name_.c_str());
+				ROS_INFO("Relative position measurement (odometry) visualized by '%s' with a red pen.", visualization_odisseus_name_.c_str());
 			}
 		}
 
@@ -110,11 +110,11 @@ namespace odisseus
 			if(is_visualization_requested() && is_visualization_odisseus_available()) {
 				
 				// Move visualization turtle to the 'measured' position.
-				turtlesim::TeleportRelative visualize_current_twist;
+				/*turtlesim::TeleportRelative visualize_current_twist;
 				visualize_current_twist.request.linear = measurement.linear_velocity / frequency_;
 				visualize_current_twist.request.angular = measurement.angular_velocity / frequency_;
-				auto client = node_handle_.serviceClient<decltype(visualize_current_twist)>(visualization_turtle_name_ + "/teleport_relative");
-				client.call(visualize_current_twist);
+				auto client = node_handle_.serviceClient<decltype(visualize_current_twist)>(visualization_odisseus_name_ + "/teleport_relative");
+				client.call(visualize_current_twist);*/
 			}
 		}
 		
